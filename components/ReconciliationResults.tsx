@@ -342,14 +342,12 @@ export const ReconciliationResults: React.FC<ReconciliationResultsProps> = ({ re
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [showExportModal, setShowExportModal] = useState(false);
   
-  // States lifted from DetailedReport to persist across tab switches
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedBankIndices, setSelectedBankIndices] = useState<Set<number>>(new Set());
   const [selectedLedgerIndices, setSelectedLedgerIndices] = useState<Set<number>>(new Set());
   const [bankStatuses, setBankStatuses] = useState<Record<number, Transaction['status']>>({});
   const [ledgerStatuses, setLedgerStatuses] = useState<Record<number, Transaction['status']>>({});
 
-  // Export settings
   const [exportConfig, setExportConfig] = useState<PdfExportConfig>({
     includeSummary: true,
     includeMatches: true,
@@ -476,7 +474,6 @@ export const ReconciliationResults: React.FC<ReconciliationResultsProps> = ({ re
         </button>
       </div>
 
-      {/* Bulk Actions Floating Bar */}
       {hasSelection && activeTab === 'details' && (
         <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-50 animate-slide-up">
             <div className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-full shadow-2xl p-2 px-8 flex items-center gap-6 backdrop-blur-xl bg-opacity-95 dark:bg-opacity-95 ring-4 ring-indigo-500/10 transition-all">
@@ -540,7 +537,6 @@ export const ReconciliationResults: React.FC<ReconciliationResultsProps> = ({ re
         </div>
       )}
 
-      {/* Selective Export Modal */}
       {showExportModal && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-fade-in">
             <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl max-w-lg w-full p-8 border border-gray-200 dark:border-slate-700 transform transition-all scale-100">

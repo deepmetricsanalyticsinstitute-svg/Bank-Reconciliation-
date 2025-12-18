@@ -43,19 +43,18 @@ const App: React.FC = () => {
     let intervalId: number;
     if (isLoading) {
       setProgress(0);
-      // Faster progress bar for better UX
       intervalId = window.setInterval(() => {
         setProgress((prev) => {
           if (prev >= 98) return prev;
           let increment = 1.0;
-          if (prev < 40) increment = 4.0; // Fast start
+          if (prev < 40) increment = 4.0;
           else if (prev < 70) increment = 1.5;
           else if (prev < 90) increment = 0.5;
           else increment = 0.1;
           increment += (Math.random() - 0.5) * 0.2;
           return Math.min(prev + increment, 98);
         });
-      }, 100); // Faster interval (100ms instead of 150ms)
+      }, 100);
     }
     return () => clearInterval(intervalId);
   }, [isLoading]);
@@ -86,7 +85,6 @@ const App: React.FC = () => {
       
       const reconciliationResult = await reconcileFiles(bankStatementPart, ledgerPart, model, asAtDate);
       setProgress(100);
-      // Immediate transition to result for better perceived performance
       setResult(reconciliationResult);
       setIsLoading(false);
       
