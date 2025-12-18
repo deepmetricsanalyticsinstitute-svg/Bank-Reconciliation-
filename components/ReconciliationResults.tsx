@@ -572,10 +572,10 @@ export const ReconciliationResults: React.FC<ReconciliationResultsProps> = ({ re
 
                     {(selectedBankIndices.size > 0 || selectedLedgerIndices.size > 0) && (
                         <div className="mt-6 pt-6 border-t border-gray-100 dark:border-slate-700">
-                             <label className="flex items-center justify-between p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-800 cursor-pointer">
+                             <label className="flex items-center justify-between p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-800 cursor-pointer hover:border-indigo-400 transition-all">
                                 <div className="flex flex-col">
-                                    <span className="font-black text-indigo-700 dark:text-indigo-400">Filter Selection</span>
-                                    <span className="text-xs text-indigo-600/70 dark:text-indigo-300/50">Only include the items you've checked in the report table.</span>
+                                    <span className="font-black text-indigo-700 dark:text-indigo-400">Only export selected items</span>
+                                    <span className="text-xs text-indigo-600/70 dark:text-indigo-300/60">Include only the bank and ledger items you have checked in the detailed table.</span>
                                 </div>
                                 <input 
                                     type="checkbox"
